@@ -70,6 +70,16 @@
             android:layout_height="wrap_content" />
     </RadioGroup>
 
+    <EditText
+        android:id="@+id/num_percent_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="52dp"
+        android:textSize="24sp"
+        android:inputType="number"
+        android:ems="5"
+        android:importantForAutofill="no" />
+
     <TextView
         android:id="@+id/num_pizzas_text_view"
         android:text="Total Bill Cost: ?"
