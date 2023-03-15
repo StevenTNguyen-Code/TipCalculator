@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Number of people?"
+        android:text="Bill Total?"
         android:textSize="24sp"
         android:labelFor="@id/num_attend_edit_text" />
 
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="How hungry?"
+        android:text="Tip Amount?"
         android:textSize="24sp"
         android:labelFor="@id/hungry_radio_group" />
 
@@ -43,18 +43,21 @@
         android:orientation="horizontal">
         <RadioButton
             android:id="@+id/light_radio_button"
-            android:text="Light"
+            android:text="10%"
+            android:textSize="22sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RadioButton
             android:id="@+id/medium_radio_button"
-            android:text="Medium"
+            android:text="15%"
+            android:textSize="22sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true" />
         <RadioButton
             android:id="@+id/ravenous_radio_button"
-            android:text="Ravenous"
+            android:text="20%"
+            android:textSize="22sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RadioGroup>
