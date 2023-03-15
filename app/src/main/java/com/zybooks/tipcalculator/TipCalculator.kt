@@ -4,7 +4,7 @@ import kotlin.math.ceil
 
 const val SLICES_PER_PIZZA = 8
 
-class PizzaCalculator(partySize: Int, var hungerLevel: HungerLevel) {
+class TipCalculator(partySize: Int, var hungerLevel: HungerLevel) {
     var partySize = 0
         set(value) {
             field = if (value >= 0) value else 0
