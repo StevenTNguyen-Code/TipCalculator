@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity() {
         val hungerLevel = when (howHungryRadioGroup.getCheckedRadioButtonId()) {
             R.id.light_radio_button -> TipCalculator.HungerLevel.LIGHT
             R.id.medium_radio_button -> TipCalculator.HungerLevel.MEDIUM
-            else -> TipCalculator.HungerLevel.RAVENOUS
+            R.id.ravenous_radio_button -> TipCalculator.HungerLevel.RAVENOUS
+            else -> TipCalculator.HungerLevel.RANDOM
         }
 
         // Get the number of pizzas needed
