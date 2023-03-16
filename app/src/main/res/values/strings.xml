@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Tip Calculator</string>
-    <string name="total_bill_cost">Total Bill Cost: %d</string>
+    <string name="total_bill_cost">Total Bill Cost: %f</string>
 </resources>

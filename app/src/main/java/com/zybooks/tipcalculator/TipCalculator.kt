@@ -4,19 +4,19 @@ import kotlin.math.ceil
 
 const val SLICES_PER_PIZZA = 8
 
-class TipCalculator(partySize: Int, var hungerLevel: HungerLevel) {
-    var partySize = 0
+class TipCalculator(partySize: Double, var hungerLevel: HungerLevel) {
+    var partySize = 0.0
         set(value) {
-            field = if (value >= 0) value else 0
+            field = if (value >= 0.0) value else 0.0
         }
 
-    enum class HungerLevel(var numSlices: Int) {
-        LIGHT(2), MEDIUM(3), RAVENOUS(4)
+    enum class HungerLevel(var numSlices: Double) {
+        LIGHT(2.0), MEDIUM(3.0), RAVENOUS(4.0)
     }
 
-    val totalPizzas: Int
+    val totalPizzas: Double
         get() {
-            return ceil(partySize * hungerLevel.numSlices / SLICES_PER_PIZZA.toDouble()).toInt()
+            return (partySize * hungerLevel.numSlices / SLICES_PER_PIZZA.toDouble())
         }
 
     init {

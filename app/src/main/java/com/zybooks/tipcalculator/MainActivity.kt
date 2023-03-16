@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var numAttendEditText: EditText
     private lateinit var numPizzasTextView: TextView
     private lateinit var howHungryRadioGroup: RadioGroup
-    private var totalPizzas = 0
+    private var totalPizzas = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,14 +26,14 @@ class MainActivity : AppCompatActivity() {
 
         // Restore state
         if (savedInstanceState != null) {
-            totalPizzas = savedInstanceState.getInt(KEY_TOTAL_PIZZAS)
+            totalPizzas = savedInstanceState.getDouble(KEY_TOTAL_PIZZAS)
             displayTotal()
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt(KEY_TOTAL_PIZZAS, totalPizzas)
+        outState.putDouble(KEY_TOTAL_PIZZAS, totalPizzas)
     }
 
     fun calculateClick(view: View) {
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         val numAttendStr = numAttendEditText.text.toString()
 
         // Convert the text into an integer
-        val numAttend = numAttendStr.toIntOrNull() ?: 0
+        val numAttend = numAttendStr.toDoubleOrNull() ?: 0.0
 
         // Get hunger level selection
         val hungerLevel = when (howHungryRadioGroup.getCheckedRadioButtonId()) {
