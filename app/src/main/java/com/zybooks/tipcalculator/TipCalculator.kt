@@ -11,12 +11,12 @@ class TipCalculator(partySize: Double, var hungerLevel: HungerLevel) {
         }
 
     enum class HungerLevel(var numSlices: Double) {
-        LIGHT(2.0), MEDIUM(3.0), RAVENOUS(4.0)
+        LIGHT(0.10), MEDIUM(0.15), RAVENOUS(0.20)
     }
 
     val totalPizzas: Double
         get() {
-            return (partySize * hungerLevel.numSlices / SLICES_PER_PIZZA.toDouble())
+            return (partySize + (partySize * hungerLevel.numSlices)).toDouble()
         }
 
     init {
