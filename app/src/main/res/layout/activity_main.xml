@@ -70,6 +70,13 @@
             android:layout_height="wrap_content" />
     </RadioGroup>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom Tip Percent?"
+        android:textSize="24sp"
+                                            />
+
     <EditText
         android:id="@+id/num_percent_edit_text"
         android:layout_width="wrap_content"
