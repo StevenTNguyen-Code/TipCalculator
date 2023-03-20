@@ -16,13 +16,22 @@ class MainActivity : AppCompatActivity() {
     private lateinit var howHungryRadioGroup: RadioGroup
     private var totalPizzas = 0.0
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         numAttendEditText = findViewById(R.id.num_attend_edit_text)
         numPizzasTextView = findViewById(R.id.num_pizzas_text_view)
         howHungryRadioGroup = findViewById(R.id.hungry_radio_group)
+
+        //This is to display the AlertDialog.
+        val dialog = WarningDialogFragment()
+        dialog.show(supportFragmentManager, "warningDialog")
 
         // Restore state
         if (savedInstanceState != null) {
