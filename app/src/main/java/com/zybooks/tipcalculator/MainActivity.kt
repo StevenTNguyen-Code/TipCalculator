@@ -53,22 +53,22 @@ class MainActivity : AppCompatActivity() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.low_tip -> {
-                val dialog = WarningDialogFragment()
+                val dialog = LowButtonWarningDialogFragment()
                 dialog.show(supportFragmentManager, "warningDialog")
                 true
             }
             R.id.medium_tip -> {
-                val dialog = WarningDialogFragment()
+                val dialog = MediumButtonWarningDialogFragment()
                 dialog.show(supportFragmentManager, "warningDialog")
                 true
             }
             R.id.high_tip -> {
-                val dialog = WarningDialogFragment()
+                val dialog = HighButtonWarningDialogFragment()
                 dialog.show(supportFragmentManager, "warningDialog")
                 true
             }
             R.id.random_tip -> {
-                val dialog = WarningDialogFragment()
+                val dialog = RandomButtonWarningDialogFragment()
                 dialog.show(supportFragmentManager, "warningDialog")
                 true
             }

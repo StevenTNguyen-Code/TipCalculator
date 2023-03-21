@@ -7,6 +7,11 @@
     <string name="warning_message">Warning</string>
     <string name="ok_dialogButton">OK</string>
 
+    <string name="lowTip">Please choose the 10% Button</string>
+    <string name="mediumTip">Please choose the 15% Button</string>
+    <string name="highTip">Please choose the 20% Button</string>
+    <string name="randomTip">Please choose the Random Button</string>
+
     <string name="low_tip">10% Tip</string>
     <string name="medium_tip">15% Tip</string>
     <string name="high_tip">20% Tip</string>
