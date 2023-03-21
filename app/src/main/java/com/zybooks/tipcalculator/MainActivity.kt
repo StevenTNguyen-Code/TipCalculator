@@ -33,9 +33,14 @@ class MainActivity : AppCompatActivity() {
         val dialog = WarningDialogFragment()
         dialog.show(supportFragmentManager, "warningDialog")
 
+        //This is the contextMenu for the Random Button
+        val listView1 = findViewById<RadioButton>(R.id.custom_radio_button)
+        registerForContextMenu(listView1)
 
-        val listView = findViewById<RadioButton>(R.id.custom_radio_button)
-        registerForContextMenu(listView)
+        //This is the contextMenu for the 20% Button
+        val listView2 = findViewById<RadioButton>(R.id.ravenous_radio_button)
+        registerForContextMenu(listView2)
+
 
         // Restore state
         if (savedInstanceState != null) {
