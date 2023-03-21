@@ -41,6 +41,10 @@ class MainActivity : AppCompatActivity() {
         val listView2 = findViewById<RadioButton>(R.id.ravenous_radio_button)
         registerForContextMenu(listView2)
 
+        //This is the contextMenu for the 15% Button
+        val listView3 = findViewById<RadioButton>(R.id.medium_radio_button)
+        registerForContextMenu(listView3)
+
 
         // Restore state
         if (savedInstanceState != null) {
