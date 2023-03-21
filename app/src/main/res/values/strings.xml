@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">Tip Calculator</string>
     <string name="total_bill_cost">Total Bill Cost: %.2f</string>
+
     <string name="warning">Warning</string>
     <string name="BillCost">Please enter a bill value greater than $0.00</string>
     <string name="warning_message">Warning</string>
     <string name="ok_dialogButton">OK</string>
+
+    <string name="low_tip">10% Tip</string>
+    <string name="medium_tip">15% Tip</string>
+    <string name="high_tip">20% Tip</string>
+    <string name="random_tip">Random Tip</string>
+
+
 </resources>

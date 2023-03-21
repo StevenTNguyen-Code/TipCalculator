@@ -1,10 +1,10 @@
 package com.zybooks.tipcalculator
 
 import android.os.Bundle
+import android.view.ContextMenu
+import android.view.MenuItem
 import android.view.View
-import android.widget.EditText
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 private const val KEY_TOTAL_PIZZAS = "totalPizzas"
@@ -33,12 +33,50 @@ class MainActivity : AppCompatActivity() {
         val dialog = WarningDialogFragment()
         dialog.show(supportFragmentManager, "warningDialog")
 
+
+        val listView = findViewById<RadioButton>(R.id.custom_radio_button)
+        registerForContextMenu(listView)
+
         // Restore state
         if (savedInstanceState != null) {
             totalPizzas = savedInstanceState.getDouble(KEY_TOTAL_PIZZAS)
             displayTotal()
         }
     }
+
+    override fun onCreateContextMenu(menu: ContextMenu?,
+                                     v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menuInflater.inflate(R.menu.context_menu, menu)
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.low_tip -> {
+                val dialog = WarningDialogFragment()
+                dialog.show(supportFragmentManager, "warningDialog")
+                true
+            }
+            R.id.medium_tip -> {
+                val dialog = WarningDialogFragment()
+                dialog.show(supportFragmentManager, "warningDialog")
+                true
+            }
+            R.id.high_tip -> {
+                val dialog = WarningDialogFragment()
+                dialog.show(supportFragmentManager, "warningDialog")
+                true
+            }
+            R.id.random_tip -> {
+                val dialog = WarningDialogFragment()
+                dialog.show(supportFragmentManager, "warningDialog")
+                true
+            }
+
+            else -> super.onContextItemSelected(item)
+        }
+    }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)

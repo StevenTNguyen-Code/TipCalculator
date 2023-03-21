@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/low_tip"
+        android:title="@string/low_tip">
+    </item>
+    <item android:id="@+id/medium_tip"
+        android:title="@string/medium_tip">
+    </item>
+    <item android:id="@+id/high_tip"
+        android:title="@string/high_tip">
+    </item>
+    <item android:id="@+id/random_tip"
+        android:title="@string/random_tip">
+    </item>
+</menu>
