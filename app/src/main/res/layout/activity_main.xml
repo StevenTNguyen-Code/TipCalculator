@@ -37,6 +37,8 @@
         android:textSize="24sp"
         android:labelFor="@id/hungry_radio_group" />
 
+
+
     <RadioGroup
         android:id="@+id/hungry_radio_group"
         android:layout_width="fill_parent"
@@ -86,4 +88,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:onClick="calculateClick" />
+
+    <androidx.fragment.app.FragmentContainerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.zybooks.tipcalculator.HelloFragment" />
 </LinearLayout>
