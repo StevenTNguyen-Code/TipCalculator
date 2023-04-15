@@ -1,5 +1,6 @@
 package com.zybooks.tipcalculator
 
+import android.graphics.drawable.AnimationDrawable
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.ContextMenu
@@ -27,6 +28,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Get reference to ImageView
+        val animationView = findViewById<ImageView>(R.id.animation_view)
+
+        // Set animation drawable as the background of ImageView
+        animationView.setBackgroundResource(R.drawable.flying_rocket)
+
+        // Get AnimationDrawable object from ImageView background
+        val animationDrawable = animationView.background as AnimationDrawable
+
+        // Start the animation
+        animationDrawable.start()
+
         numAttendEditText = findViewById(R.id.num_attend_edit_text)
         numPizzasTextView = findViewById(R.id.num_pizzas_text_view)
         howHungryRadioGroup = findViewById(R.id.hungry_radio_group)
@@ -50,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         //This is the contextMenu for the 10% Button
         val listView4 = findViewById<RadioButton>(R.id.light_radio_button)
         registerForContextMenu(listView4)
-        
+
 
 
         // Restore state
@@ -58,6 +71,8 @@ class MainActivity : AppCompatActivity() {
             totalPizzas = savedInstanceState.getDouble(KEY_TOTAL_PIZZAS)
             displayTotal()
         }
+
+
 
 
     }
@@ -125,10 +140,15 @@ class MainActivity : AppCompatActivity() {
         totalPizzas = calc.totalPizzas
         mediaPlayer.start()
         displayTotal()
+
+
     }
 
     private fun displayTotal() {
         val totalText = getString(R.string.total_bill_cost, totalPizzas)
         numPizzasTextView.text = totalText
+
     }
+
+
 }
