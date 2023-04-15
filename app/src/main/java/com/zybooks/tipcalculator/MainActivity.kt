@@ -1,11 +1,13 @@
 package com.zybooks.tipcalculator
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+
 
 private const val KEY_TOTAL_PIZZAS = "totalPizzas"
 
@@ -56,6 +58,8 @@ class MainActivity : AppCompatActivity() {
             totalPizzas = savedInstanceState.getDouble(KEY_TOTAL_PIZZAS)
             displayTotal()
         }
+
+
     }
 
     override fun onCreateContextMenu(menu: ContextMenu?,
@@ -113,9 +117,13 @@ class MainActivity : AppCompatActivity() {
             else -> TipCalculator.HungerLevel.RANDOM
         }
 
+        val mediaPlayer = MediaPlayer.create(this, R.raw.happy)
+        val button = findViewById<Button>(R.id.calc_button)
+
         // Get the number of pizzas needed
         val calc = TipCalculator(numAttend, hungerLevel)
         totalPizzas = calc.totalPizzas
+        mediaPlayer.start()
         displayTotal()
     }
 
