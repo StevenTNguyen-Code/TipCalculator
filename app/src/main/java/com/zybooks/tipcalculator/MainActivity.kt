@@ -8,16 +8,26 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+
 
 
 private const val KEY_TOTAL_PIZZAS = "totalPizzas"
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SensorEventListener  {
 
     private lateinit var numAttendEditText: EditText
     private lateinit var numPizzasTextView: TextView
     private lateinit var howHungryRadioGroup: RadioGroup
     private var totalPizzas = 0.0
+
+    // Declare sensor and sensor manager variables
+    private lateinit var sensorManager: SensorManager
+    private var accelerometer: Sensor? = null
 
 
 
@@ -27,6 +37,10 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Initialize sensor and sensor manager
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
 
         // Get reference to ImageView
         val animationView = findViewById<ImageView>(R.id.animation_view)
@@ -75,6 +89,32 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Register accelerometer sensor listener
+        accelerometer?.also { sensor ->
+            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        // Unregister accelerometer sensor listener
+        sensorManager.unregisterListener(this)
+    }
+
+
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+        // Not used
+    }
+
+    companion object {
+        private const val SHAKE_THRESHOLD = 3.25
     }
 
     override fun onCreateContextMenu(menu: ContextMenu?,
@@ -148,6 +188,24 @@ class MainActivity : AppCompatActivity() {
         val totalText = getString(R.string.total_bill_cost, totalPizzas)
         numPizzasTextView.text = totalText
 
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        // Check if the sensor event is an accelerometer shake event
+        if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER) {
+            val x = event.values[0]
+            val y = event.values[1]
+            val z = event.values[2]
+
+            val acceleration = Math.sqrt(x * x + y * y + z * z.toDouble())
+
+            if (acceleration > SHAKE_THRESHOLD) {
+                // Shake detected, restart app
+                val intent = intent
+                finish()
+                startActivity(intent)
+            }
+        }
     }
 
 
