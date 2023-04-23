@@ -209,6 +209,10 @@ class MainActivity : AppCompatActivity(), SensorEventListener  {
                 val myTextView = findViewById<TextView>(R.id.num_pizzas_text_view)
                 myTextView.setText("Total Bill Cost: ?")
 
+                //Shake detected, then reset the RadioButton Group
+                val radioGroup: RadioGroup = findViewById(R.id.hungry_radio_group)
+                radioGroup.clearCheck()
+
 
             }
         }
