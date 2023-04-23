@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener  {
     }
 
     companion object {
-        private const val SHAKE_THRESHOLD = 3.25
+        private const val SHAKE_THRESHOLD = 500
     }
 
     override fun onCreateContextMenu(menu: ContextMenu?,
@@ -200,10 +200,11 @@ class MainActivity : AppCompatActivity(), SensorEventListener  {
             val acceleration = Math.sqrt(x * x + y * y + z * z.toDouble())
 
             if (acceleration > SHAKE_THRESHOLD) {
-                // Shake detected, restart app
-                val intent = intent
-                finish()
-                startActivity(intent)
+                // Shake detected, then reset the Bill Input Total
+                val numAttendEditText = findViewById<EditText>(R.id.num_attend_edit_text)
+                numAttendEditText.text.clear()
+
+
             }
         }
     }
