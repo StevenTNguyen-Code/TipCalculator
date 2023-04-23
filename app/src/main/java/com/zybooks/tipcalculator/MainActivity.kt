@@ -13,7 +13,7 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-
+import kotlin.math.abs
 
 
 private const val KEY_TOTAL_PIZZAS = "totalPizzas"
@@ -114,7 +114,8 @@ class MainActivity : AppCompatActivity(), SensorEventListener  {
     }
 
     companion object {
-        private const val SHAKE_THRESHOLD = 500
+        //If value is too low, it will clear without shaking. If too high, it will not reset. 
+        private const val SHAKE_THRESHOLD = 10
     }
 
     override fun onCreateContextMenu(menu: ContextMenu?,
@@ -197,7 +198,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener  {
             val y = event.values[1]
             val z = event.values[2]
 
-            val acceleration = Math.sqrt(x * x + y * y + z * z.toDouble())
+            val acceleration = abs(Math.sqrt(x * x + y * y + z * z.toDouble()))
 
             if (acceleration > SHAKE_THRESHOLD) {
                 // Shake detected, then reset the Bill Input Total
