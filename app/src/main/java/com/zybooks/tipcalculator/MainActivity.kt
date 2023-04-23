@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener  {
     }
 
     companion object {
-        //If value is too low, it will clear without shaking. If too high, it will not reset. 
+        //If value is too low, it will clear without shaking. If too high, it will not reset.
         private const val SHAKE_THRESHOLD = 10
     }
 
@@ -204,6 +204,10 @@ class MainActivity : AppCompatActivity(), SensorEventListener  {
                 // Shake detected, then reset the Bill Input Total
                 val numAttendEditText = findViewById<EditText>(R.id.num_attend_edit_text)
                 numAttendEditText.text.clear()
+
+                //Shake detected, then reset the Total Bill Cost
+                val myTextView = findViewById<TextView>(R.id.num_pizzas_text_view)
+                myTextView.setText("Total Bill Cost: ?")
 
 
             }
